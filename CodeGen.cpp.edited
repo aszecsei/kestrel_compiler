@@ -1,0 +1,102 @@
+#include "CodeGen.h"
+#include "environment.h"
+
+#define outputTabbedCode(code) (CodeGen::outputFile << "\t" << code << "\n")
+
+#define outputUntabbedCode(code) (CodeGen::outputFile << code << "\n")
+
+std::ofstream CodeGen::outputFile;
+
+static uint32_t nextFreeLabel = 0;
+
+void CodeGen::Prologue(std::string infileName, std::string fileName) {
+	CodeGen::outputFile.open(fileName.c_str());
+
+	outputTabbedCode(".arch armv6");
+	outputTabbedCode(".eabi_attribute 27, 3");
+	outputTabbedCode(".eabi_attribute 28, 1");
+	outputTabbedCode(".fpu vfp");
+	outputTabbedCode(".eabi_attribute 20, 1");
+	outputTabbedCode(".eabi_attribute 21, 1");
+	outputTabbedCode(".eabi_attribute 23, 3");
+	outputTabbedCode(".eabi_attribute 24, 1");
+	outputTabbedCode(".eabi_attribute 25, 1");
+	outputTabbedCode(".eabi_attribute 26, 2");
+	outputTabbedCode(".eabi_attribute 30, 6");
+	outputTabbedCode(".eabi_attribute 18, 4");
+	outputTabbedCode(".file\t\"" << infileName << "\"");
+	outputTabbedCode(".section\t.rodata\n");
+	outputTabbedCode(".align\t2");
+}
+
+void CodeGen::Epilogue() {
+	outputTabbedCode(".size\tmain, .-main");
+	outputTabbedCode(".ident\t\"GCC: (Debian 4.6.3-14+rpi1) 4.6.3\"");
+	outputTabbedCode(".section\t.note.GNU-stack,\"\",%progbits");
+
+	CodeGen::outputFile.close();
+}
+
+uint32_t CodeGen::NewLabel() {
+	CodeGen::outputFile << ".L" << CodeGen::nextFreeLabel << ":";
+	CodeGen::nextFreeLabel++;
+	return CodeGen::nextFreeLabel - 1;
+}
+
+CodeGenNode* CodeGen::StartFunc(const char* funcName, const List<uint32_t>& lstParamIds, const Environment* env) {
+    outputUntabbedCode(funcName << ":");
+    outputTabbedCode("@ args = " << lstParamIds.Length() << ", pretend = 0, frame = 8");
+    outputTabbedCode("@ frame_needed = 1, uses_anonymous_args = 0");
+    CodeGen::StackPush(NULL, 0, env);
+    outputTabbedCode("add fp, sp, #4");
+    outputTabbedCode("sub sp, sp, #8");
+    return NULL;
+}
+CodeGenNode* CodeGen::StackPop(CodeGenNode *preceed, uint32_t id, const Environment* evn) {
+    outputTabbedCode("stmfd\tsp!, {fp, lr}");
+    return NULL;
+}
+CodeGenNode* CodeGen::StackPush(CodeGenNode *preceed, uint32_t id, const Environment* evn) {
+    return NULL;
+}
+CodeGenNode* CodeGen::Add(CodeGenNode *preceed, uint32_t id, uint32_t id2, const Environment* evn) {
+    return NULL;
+}
+CodeGenNode* CodeGen::Add(CodeGenNode *preceed, uint32_t idr, uint32_t id1, uint32_t id2, const Environment* evn) {
+	outputTabbedCode("ADD r3, r2, r3");
+	//=BUG= need to organize registers when doing operation
+	return NULL;
+}
+CodeGenNode* CodeGen::Sub(CodeGenNode *preceed, uint32_t idr, uint32_t id1, uint32_t id2, const Environment* evn) {
+	outputTabbedCode("SUB r3, r2, r3");
+	//=BUG= need to organize registers when doing operation
+	return NULL;
+}
+CodeGenNode* CodeGen::Mul(CodeGenNode *preceed, uint32_t idr, uint32_t id1, uint32_t id2, const Environment* evn) {
+	outputTabbedCode("MUL r3, r2, r3");
+	//=BUG= need to organize registers when doing operation
+	return NULL;
+}
+CodeGenNode* CodeGen::Div(CodeGenNode *preceed, uint32_t idr, uint32_t id1, uint32_t id2, const Environment* evn) {
+	outputTabbedCode("DIV r3, r2, r3");
+	//=BUG= need to organize registers when doing operation
+	return NULL;
+}
+CodeGenNode* CodeGen::Mod(CodeGenNode *preceed, uint32_t idr, uint32_t id1, uint32_t id2, const Environment* evn) {
+	// =BUG= MODULOUS IS NOT SUPPORTED
+	//=BUG= need to organize registers when doing operation
+	return NULL;
+}
+CodeGenNode* CodeGen::Return(CodeGenNode *preceed, uint32_t id, const Environment* evn) {
+    return NULL;
+}
+CodeGenNode* CodeGen::Less(CodeGenNode* preceed, uint32_t id1, uint32_t id2, const Environment* env) {
+    return NULL;
+}
+CodeGenNode* CodeGen::Merge(List<CodeGenNode* >& branches, const Environment* env) {
+    return NULL;
+}
+unsigned int CodeGen::EndFunc(CodeGenNode* head, const Environment* env, char* szCode, unsigned int lenCode)
+{
+    return 0;
+}

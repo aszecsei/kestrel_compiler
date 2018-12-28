@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <in>block.cpp</in>
+      <in>declaration.cpp</in>
+      <in>environment.cpp</in>
+      <in>expression.cpp</in>
+      <in>keywords.c</in>
+      <in>lexical.c</in>
+      <in>lexsupport.c</in>
+      <in>main.cpp</in>
+      <in>program.cpp</in>
+      <in>reference.cpp</in>
+      <in>reference.h</in>
+      <in>statement.cpp</in>
+      <in>stringpool.c</in>
+      <in>symboltable.c</in>
+      <in>type.cpp</in>
+      <in>type.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>/mnt/nfs/netapp1/fs2/aszecsei/cs4980/groupe/kestrel</executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="block.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="declaration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="environment.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="expression.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="keywords.c" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <preprocessorList>
+            <Elem>DYNAMIC_POOL</Elem>
+            <Elem>DYNAMIC_SYMBOLSZ</Elem>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="lexical.c" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <preprocessorList>
+            <Elem>DYNAMIC_POOL</Elem>
+            <Elem>DYNAMIC_SYMBOLSZ</Elem>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="lexsupport.c" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <preprocessorList>
+            <Elem>DYNAMIC_POOL</Elem>
+            <Elem>DYNAMIC_SYMBOLSZ</Elem>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="program.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="reference.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="reference.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="statement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="stringpool.c" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <preprocessorList>
+            <Elem>DYNAMIC_POOL</Elem>
+            <Elem>DYNAMIC_SYMBOLSZ</Elem>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="symboltable.c" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <preprocessorList>
+            <Elem>DYNAMIC_POOL</Elem>
+            <Elem>DYNAMIC_SYMBOLSZ</Elem>
+            <Elem>_DEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="type.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="type.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
